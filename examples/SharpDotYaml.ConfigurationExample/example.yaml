@@ -1,0 +1,4 @@
+EXAMPLE_VALUE: this is only a test
+ExampleSettings:
+  Nested:
+   Value: this is a nested value
