@@ -10,10 +10,12 @@ namespace SharpDotYaml.Extensions.Configuration
     /// </summary>
     public class YamlStreamConfigurationProvider : StreamConfigurationProvider
     {
+        /// <inheritdoc />
         public YamlStreamConfigurationProvider(StreamConfigurationSource source) : base(source)
         {
         }
 
+        /// <inheritdoc />
         public override void Load(Stream stream)
         {
             try
