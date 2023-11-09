@@ -1,8 +1,8 @@
-﻿using Nuke.Common.CI.GitHubActions;
+﻿using System.Collections.Generic;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.CI.GitHubActions.Configuration;
 using Nuke.Common.Utilities;
 using Nuke.Components;
-using System.Collections.Generic;
 
 [GitHubActions(
     "ubuntu-latest",

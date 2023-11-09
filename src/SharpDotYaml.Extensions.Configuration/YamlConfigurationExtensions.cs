@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.FileProviders;
-using SharpDotYaml.Extensions.Configuration;
-using System;
+﻿using System;
 using System.IO;
+using Microsoft.Extensions.FileProviders;
+using SharpDotYaml.Extensions.Configuration;
 
 namespace Microsoft.Extensions.Configuration
 {
