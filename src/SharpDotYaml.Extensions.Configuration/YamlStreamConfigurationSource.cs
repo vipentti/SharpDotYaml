@@ -12,7 +12,7 @@ namespace SharpDotYaml.Extensions.Configuration
     public class YamlStreamConfigurationSource : StreamConfigurationSource
     {
         /// <inheritdoc />
-        public override IConfigurationProvider Build(IConfigurationBuilder builder)
-            => new YamlStreamConfigurationProvider(this);
+        public override IConfigurationProvider Build(IConfigurationBuilder builder) =>
+            new YamlStreamConfigurationProvider(this);
     }
 }

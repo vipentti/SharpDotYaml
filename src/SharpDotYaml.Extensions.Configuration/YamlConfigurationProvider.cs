@@ -18,7 +18,8 @@ namespace SharpDotYaml.Extensions.Configuration
         /// Initialize new instance with the given source
         /// </summary>
         /// <param name="source">The source</param>
-        public YamlConfigurationProvider(YamlConfigurationSource source) : base(source) { }
+        public YamlConfigurationProvider(YamlConfigurationSource source)
+            : base(source) { }
 
         /// <inheritdoc />
         public override void Load(Stream stream)

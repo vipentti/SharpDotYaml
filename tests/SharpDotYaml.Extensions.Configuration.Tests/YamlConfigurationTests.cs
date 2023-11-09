@@ -11,7 +11,8 @@ public class YamlConfigurationTests
     [Fact]
     public void CanLoadValidYaml()
     {
-        var yaml = @"
+        var yaml =
+            @"
         firstname: test
         test.last.name: last.name
         residential.address:
@@ -30,7 +31,8 @@ public class YamlConfigurationTests
     [Fact]
     public void CanLoadYamlWithAnchorsAndAliases()
     {
-        var yaml = @"
+        var yaml =
+            @"
             bill-to:  &id001
                 street: 123 Tornado Alley Suite 16
                 city:   East Westville
@@ -53,7 +55,8 @@ public class YamlConfigurationTests
     [Fact]
     public void Throws_WhenUsingYamlMerge()
     {
-        var yaml = @"
+        var yaml =
+            @"
             bill-to:  &id001
                 street: 123 Tornado Alley Suite 16
                 city:   East Westville
@@ -66,14 +69,16 @@ public class YamlConfigurationTests
 
         var act = () => LoadYamlProvider(yaml);
 
-        act.Should().ThrowExactly<FormatException>()
-                .WithMessage("The YAML element has an invalid key: 'Merge is not supported'");
+        act.Should()
+            .ThrowExactly<FormatException>()
+            .WithMessage("The YAML element has an invalid key: 'Merge is not supported'");
     }
 
     [Fact]
     public void CanLoadEmptyValue()
     {
-        var yaml = @"
+        var yaml =
+            @"
         firstname: ''
         ";
 
@@ -85,13 +90,15 @@ public class YamlConfigurationTests
     [Fact]
     public void NonObjectRootIsInvalid()
     {
-        var yaml = @"
+        var yaml =
+            @"
         'firstname'
         ";
 
         var act = () => LoadYamlProvider(yaml);
 
-        act.Should().ThrowExactly<FormatException>()
+        act.Should()
+            .ThrowExactly<FormatException>()
             .WithMessage("Top-level YAML element must be an object. Instead 'Scalar' was found.");
     }
 
@@ -106,144 +113,164 @@ public class YamlConfigurationTests
 
     public class YamlConfigurationProviderLoad
     {
-        private readonly YamlConfigurationProvider src = new YamlConfigurationProvider(new YamlConfigurationSource());
+        private readonly YamlConfigurationProvider src = new YamlConfigurationProvider(
+            new YamlConfigurationSource()
+        );
 
         [Fact]
         public void Throws_WhenParsingInvalidYaml()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 invalid: invalid:
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
-                .WithMessage("Could not parse YAML:*");
+            act.Should().ThrowExactly<FormatException>().WithMessage("Could not parse YAML:*");
         }
 
         [Fact]
         public void Throws_WhenParsingInvalidYamlObjectKey()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 {}: invalid
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("Unsupported key element 'Mapping'*");
         }
 
         [Fact]
         public void Throws_WhenParsingEmptyKey()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 '': invalid
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("The YAML element has an invalid key: ''");
         }
 
         [Fact]
         public void Throws_WhenKeysAreDuplicated()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 invalid: 0
                 invalid: 1
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("Could not parse YAML: 'Duplicate key'.");
         }
 
         [Fact]
         public void Throws_WhenKeysAreDuplicatedCaseInsensitively()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 Invalid: 0
                 invalid: 1
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("A duplicate key 'invalid' was found.");
         }
     }
 
     public class YamlStreamConfigurationProviderLoad
     {
-        private readonly YamlStreamConfigurationProvider src = new YamlStreamConfigurationProvider(new YamlStreamConfigurationSource());
+        private readonly YamlStreamConfigurationProvider src = new YamlStreamConfigurationProvider(
+            new YamlStreamConfigurationSource()
+        );
 
         [Fact]
         public void Throws_WhenParsingInvalidYaml()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 invalid: invalid:
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
-                .WithMessage("Could not parse YAML:*");
+            act.Should().ThrowExactly<FormatException>().WithMessage("Could not parse YAML:*");
         }
 
         [Fact]
         public void Throws_WhenParsingInvalidYamlObjectKey()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 {}: invalid
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("Unsupported key element 'Mapping'*");
         }
 
         [Fact]
         public void Throws_WhenParsingEmptyKey()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 '': invalid
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("The YAML element has an invalid key: ''");
         }
 
         [Fact]
         public void Throws_WhenKeysAreDuplicated()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 invalid: 0
                 invalid: 1
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("Could not parse YAML: 'Duplicate key'.");
         }
 
         [Fact]
         public void Throws_WhenKeysAreDuplicatedCaseInsensitively()
         {
-            var yaml = @"
+            var yaml =
+                @"
                 Invalid: 0
                 invalid: 1
             ";
 
             var act = () => src.Load(yaml.StringToStream());
 
-            act.Should().ThrowExactly<FormatException>()
+            act.Should()
+                .ThrowExactly<FormatException>()
                 .WithMessage("A duplicate key 'invalid' was found.");
         }
     }

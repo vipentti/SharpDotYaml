@@ -17,7 +17,9 @@ namespace SharpDotYaml.Extensions.Configuration
     /// </summary>
     internal sealed class YamlConfigurationStreamParser
     {
-        private readonly IDictionary<string, string?> _data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
+        private readonly IDictionary<string, string?> _data = new Dictionary<string, string?>(
+            StringComparer.OrdinalIgnoreCase
+        );
         private readonly Stack<string> _context = new();
 
         public static IDictionary<string, string?> Parse(Stream input) =>
@@ -34,7 +36,9 @@ namespace SharpDotYaml.Extensions.Configuration
                 {
                     if (doc.RootNode is not YamlMappingNode mapping)
                     {
-                        throw new FormatException(Strings.FormatError_InvalidTopLevelYAMLElement(doc.RootNode.NodeType));
+                        throw new FormatException(
+                            Strings.FormatError_InvalidTopLevelYAMLElement(doc.RootNode.NodeType)
+                        );
                     }
 
                     VisitYamlMappingNode(mapping);
@@ -65,7 +69,9 @@ namespace SharpDotYaml.Extensions.Configuration
             {
                 if (node is not YamlScalarNode scalarNode)
                 {
-                    throw new FormatException(Strings.FormatError_UnsupportedKeyElement(node.NodeType, node.Start));
+                    throw new FormatException(
+                        Strings.FormatError_UnsupportedKeyElement(node.NodeType, node.Start)
+                    );
                 }
 
                 var context = scalarNode.Value;
@@ -79,7 +85,9 @@ namespace SharpDotYaml.Extensions.Configuration
                 // https://github.com/aaubry/YamlDotNet/issues/388
                 if (context == "<<")
                 {
-                    throw new FormatException(Strings.FormatError_InvalidKey("Merge is not supported"));
+                    throw new FormatException(
+                        Strings.FormatError_InvalidKey("Merge is not supported")
+                    );
                 }
 
                 return context ?? "";
@@ -116,7 +124,9 @@ namespace SharpDotYaml.Extensions.Configuration
                     break;
 
                 default:
-                    throw new FormatException(Strings.FormatError_UnsupportedYAMLElement(node.NodeType, node.Start));
+                    throw new FormatException(
+                        Strings.FormatError_UnsupportedYAMLElement(node.NodeType, node.Start)
+                    );
             }
 
             static bool IsNullValue(YamlScalarNode yamlValue)

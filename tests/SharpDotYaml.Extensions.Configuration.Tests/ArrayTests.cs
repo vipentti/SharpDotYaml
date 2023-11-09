@@ -12,7 +12,8 @@ public class ArrayTests
     [Fact]
     public void ArraysAreConvertedToKeyValuePairs()
     {
-        var yaml = @"
+        var yaml =
+            @"
         ip:
           - 1.2.3.4
           - 7.8.9.10
@@ -29,7 +30,8 @@ public class ArrayTests
     [Fact]
     public void ArrayOfObjects()
     {
-        var yaml = @"
+        var yaml =
+            @"
         ip:
           - address: 1.2.3.4
             hidden: false
@@ -48,24 +50,23 @@ public class ArrayTests
     [Fact]
     public void ImplicitArrayItemReplacement()
     {
-        var yaml1 = @"
+        var yaml1 =
+            @"
         ip:
           - 1.2.3.4
           - 7.8.9.10
           - 11.12.13.14
         ";
 
-        var yaml2 = @"
+        var yaml2 =
+            @"
         ip:
           - 15.16.17.18
         ";
 
         var yamlSource1 = GetYamlConfigurationSource(yaml1);
         var yamlSource2 = GetYamlConfigurationSource(yaml2);
-        var config = new ConfigurationBuilder()
-            .Add(yamlSource1)
-            .Add(yamlSource2)
-            .Build();
+        var config = new ConfigurationBuilder().Add(yamlSource1).Add(yamlSource2).Build();
 
         config.GetSection("ip").GetChildren().Should().HaveCount(3);
         config["ip:0"].Should().Be("15.16.17.18");
@@ -76,24 +77,23 @@ public class ArrayTests
     [Fact]
     public void ExplicitArrayItemReplacement()
     {
-        var yaml1 = @"
+        var yaml1 =
+            @"
         ip:
           - 1.2.3.4
           - 7.8.9.10
           - 11.12.13.14
         ";
 
-        var yaml2 = @"
+        var yaml2 =
+            @"
         ip:
           1: 15.16.17.18
         ";
 
         var yamlSource1 = GetYamlConfigurationSource(yaml1);
         var yamlSource2 = GetYamlConfigurationSource(yaml2);
-        var config = new ConfigurationBuilder()
-            .Add(yamlSource1)
-            .Add(yamlSource2)
-            .Build();
+        var config = new ConfigurationBuilder().Add(yamlSource1).Add(yamlSource2).Build();
 
         config.GetSection("ip").GetChildren().Should().HaveCount(3);
         config["ip:0"].Should().Be("1.2.3.4");
@@ -104,24 +104,23 @@ public class ArrayTests
     [Fact]
     public void MergesArrays()
     {
-        var yaml1 = @"
+        var yaml1 =
+            @"
         ip:
           - 1.2.3.4
           - 7.8.9.10
           - 11.12.13.14
         ";
 
-        var yaml2 = @"
+        var yaml2 =
+            @"
         ip:
           3: 15.16.17.18
         ";
 
         var yamlSource1 = GetYamlConfigurationSource(yaml1);
         var yamlSource2 = GetYamlConfigurationSource(yaml2);
-        var config = new ConfigurationBuilder()
-            .Add(yamlSource1)
-            .Add(yamlSource2)
-            .Build();
+        var config = new ConfigurationBuilder().Add(yamlSource1).Add(yamlSource2).Build();
 
         config.GetSection("ip").GetChildren().Should().HaveCount(4);
         config["ip:0"].Should().Be("1.2.3.4");
@@ -133,7 +132,8 @@ public class ArrayTests
     [Fact]
     public void ArrayOrderingIsMaintained()
     {
-        var yaml = @"
+        var yaml =
+            @"
         ip:
           - b
           - a
@@ -142,9 +142,7 @@ public class ArrayTests
 
         var yamlSource = GetYamlConfigurationSource(yaml);
 
-        var config = new ConfigurationBuilder()
-            .Add(yamlSource)
-            .Build();
+        var config = new ConfigurationBuilder().Add(yamlSource).Build();
 
         var section = config.GetSection("ip");
         var indexSections = section.GetChildren().ToArray();
@@ -158,7 +156,8 @@ public class ArrayTests
     [Fact]
     public void PropertiesAreSortedByNumberOnlyFirst()
     {
-        var yaml = @"
+        var yaml =
+            @"
         setting:
             hello: a
             bob: b
@@ -170,9 +169,7 @@ public class ArrayTests
 
         var yamlSource = GetYamlConfigurationSource(yaml);
 
-        var config = new ConfigurationBuilder()
-            .Add(yamlSource)
-            .Build();
+        var config = new ConfigurationBuilder().Add(yamlSource).Build();
 
         var section = config.GetSection("setting");
         var indexSections = section.GetChildren().ToArray();

@@ -30,7 +30,8 @@ public static class TestUtils
         return stream;
     }
 
-    public static IFileProvider StringToFileProvider(this string value) => new TestFileProvider(value);
+    public static IFileProvider StringToFileProvider(this string value) =>
+        new TestFileProvider(value);
 
     private class TestFileProvider : IFileProvider
     {
@@ -41,7 +42,8 @@ public static class TestUtils
             Data = data;
         }
 
-        public IDirectoryContents GetDirectoryContents(string subpath) => throw new NotImplementedException();
+        public IDirectoryContents GetDirectoryContents(string subpath) =>
+            throw new NotImplementedException();
 
         public IFileInfo GetFileInfo(string subpath) => new TestFile(Data);
 
