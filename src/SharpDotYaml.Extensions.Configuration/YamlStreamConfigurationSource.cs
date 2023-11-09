@@ -4,15 +4,14 @@
 
 using Microsoft.Extensions.Configuration;
 
-namespace SharpDotYaml.Extensions.Configuration
+namespace SharpDotYaml.Extensions.Configuration;
+
+/// <summary>
+/// A YAML file based on <see cref="StreamConfigurationSource"/>.
+/// </summary>
+public class YamlStreamConfigurationSource : StreamConfigurationSource
 {
-    /// <summary>
-    /// A YAML file based on <see cref="StreamConfigurationSource"/>.
-    /// </summary>
-    public class YamlStreamConfigurationSource : StreamConfigurationSource
-    {
-        /// <inheritdoc />
-        public override IConfigurationProvider Build(IConfigurationBuilder builder) =>
-            new YamlStreamConfigurationProvider(this);
-    }
+    /// <inheritdoc />
+    public override IConfigurationProvider Build(IConfigurationBuilder builder) =>
+        new YamlStreamConfigurationProvider(this);
 }
