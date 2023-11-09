@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿// Copyright 2023 Ville Penttinen
+// Distributed under the MIT License.
+// https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md
+
+using Microsoft.Extensions.Configuration;
 
 namespace SharpDotYaml.Extensions.Configuration.Tests;
 

@@ -1,4 +1,8 @@
-﻿using static SharpDotYaml.Extensions.Configuration.Tests.ProviderUtils;
+﻿// Copyright 2023 Ville Penttinen
+// Distributed under the MIT License.
+// https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md
+
+using static SharpDotYaml.Extensions.Configuration.Tests.ProviderUtils;
 
 namespace SharpDotYaml.Extensions.Configuration.Tests;
 
