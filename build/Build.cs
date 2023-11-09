@@ -1,4 +1,8 @@
-﻿using Nuke.Common;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Git;
@@ -9,10 +13,6 @@ using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Utilities.Collections;
 using Nuke.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 #pragma warning disable IDE0051 // Remove unused private members
