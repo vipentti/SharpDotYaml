@@ -14,7 +14,7 @@ namespace SharpDotYaml.Extensions.Configuration
     internal sealed class YamlConfigurationStreamParser
     {
         private readonly IDictionary<string, string?> _data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
-        private readonly Stack<string> _context = new Stack<string>();
+        private readonly Stack<string> _context = new();
 
         public static IDictionary<string, string?> Parse(Stream input) =>
             new YamlConfigurationStreamParser().ParseStream(input);
