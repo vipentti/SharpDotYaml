@@ -1,4 +1,8 @@
-﻿using Nuke.Common;
+﻿// Copyright 2023 Ville Penttinen
+// Distributed under the MIT License.
+// https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md
+
+using Nuke.Common;
 using Nuke.Common.Execution;
 
 [DisableDefaultOutput<Terminal>(

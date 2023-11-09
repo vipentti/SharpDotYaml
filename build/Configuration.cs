@@ -1,4 +1,8 @@
-﻿using System.ComponentModel;
+﻿// Copyright 2023 Ville Penttinen
+// Distributed under the MIT License.
+// https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md
+
+using System.ComponentModel;
 using Nuke.Common.Tooling;
 
 [TypeConverter(typeof(TypeConverter<Configuration>))]
