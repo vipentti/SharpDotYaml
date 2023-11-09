@@ -15,9 +15,8 @@ namespace SharpDotYaml.Extensions.Configuration
     public class YamlStreamConfigurationProvider : StreamConfigurationProvider
     {
         /// <inheritdoc />
-        public YamlStreamConfigurationProvider(StreamConfigurationSource source) : base(source)
-        {
-        }
+        public YamlStreamConfigurationProvider(StreamConfigurationSource source)
+            : base(source) { }
 
         /// <inheritdoc />
         public override void Load(Stream stream)

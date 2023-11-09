@@ -21,9 +21,17 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="path">Path relative to the base path stored in
         /// <see cref="IConfigurationBuilder.Properties"/> of <paramref name="builder"/>.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddYamlFile(this IConfigurationBuilder builder, string path)
+        public static IConfigurationBuilder AddYamlFile(
+            this IConfigurationBuilder builder,
+            string path
+        )
         {
-            return builder.AddYamlFile(provider: null, path: path, optional: false, reloadOnChange: false);
+            return builder.AddYamlFile(
+                provider: null,
+                path: path,
+                optional: false,
+                reloadOnChange: false
+            );
         }
 
         /// <summary>
@@ -34,9 +42,18 @@ namespace Microsoft.Extensions.Configuration
         /// <see cref="IConfigurationBuilder.Properties"/> of <paramref name="builder"/>.</param>
         /// <param name="optional">Whether the file is optional.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddYamlFile(this IConfigurationBuilder builder, string path, bool optional)
+        public static IConfigurationBuilder AddYamlFile(
+            this IConfigurationBuilder builder,
+            string path,
+            bool optional
+        )
         {
-            return builder.AddYamlFile(provider: null, path: path, optional: optional, reloadOnChange: false);
+            return builder.AddYamlFile(
+                provider: null,
+                path: path,
+                optional: optional,
+                reloadOnChange: false
+            );
         }
 
         /// <summary>
@@ -48,9 +65,19 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="optional">Whether the file is optional.</param>
         /// <param name="reloadOnChange">Whether the configuration should be reloaded if the file changes.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddYamlFile(this IConfigurationBuilder builder, string path, bool optional, bool reloadOnChange)
+        public static IConfigurationBuilder AddYamlFile(
+            this IConfigurationBuilder builder,
+            string path,
+            bool optional,
+            bool reloadOnChange
+        )
         {
-            return builder.AddYamlFile(provider: null, path: path, optional: optional, reloadOnChange: reloadOnChange);
+            return builder.AddYamlFile(
+                provider: null,
+                path: path,
+                optional: optional,
+                reloadOnChange: reloadOnChange
+            );
         }
 
         /// <summary>
@@ -63,7 +90,13 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="optional">Whether the file is optional.</param>
         /// <param name="reloadOnChange">Whether the configuration should be reloaded if the file changes.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddYamlFile(this IConfigurationBuilder builder, IFileProvider? provider, string path, bool optional, bool reloadOnChange)
+        public static IConfigurationBuilder AddYamlFile(
+            this IConfigurationBuilder builder,
+            IFileProvider? provider,
+            string path,
+            bool optional,
+            bool reloadOnChange
+        )
         {
             if (builder == null)
             {
@@ -91,8 +124,10 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="builder">The <see cref="IConfigurationBuilder"/> to add to.</param>
         /// <param name="configureSource">Configures the source.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddYamlFile(this IConfigurationBuilder builder, Action<YamlConfigurationSource> configureSource)
-            => builder.Add(configureSource);
+        public static IConfigurationBuilder AddYamlFile(
+            this IConfigurationBuilder builder,
+            Action<YamlConfigurationSource> configureSource
+        ) => builder.Add(configureSource);
 
         /// <summary>
         /// Adds a YAML configuration source to <paramref name="builder"/> that reads from a <see cref="Stream"/>.
@@ -100,7 +135,10 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="builder">The <see cref="IConfigurationBuilder"/> to add to.</param>
         /// <param name="stream">The <see cref="Stream"/> to read the yaml configuration data from.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddYamlStream(this IConfigurationBuilder builder, Stream stream)
+        public static IConfigurationBuilder AddYamlStream(
+            this IConfigurationBuilder builder,
+            Stream stream
+        )
         {
             if (builder == null)
             {
