@@ -65,8 +65,8 @@ Console.WriteLine("value: {0}, equals: {1}",
     config["ExampleSettings:Nested:Value"] == "this is a nested value");
 ```
 
-See also [examples/SharpDotYaml.ConfigurationExample](./examples/SharpDotYaml.ConfigurationExample)
+See also [examples/SharpDotYaml.ConfigurationExample](https://github.com/vipentti/SharpDotYaml/tree/main/examples/SharpDotYaml.ConfigurationExample)
 
 ## License
 
-SharpDotYaml is licensed under the [MIT License](./LICENSE.md)
+SharpDotYaml is licensed under the [MIT License](https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md)
