@@ -35,8 +35,6 @@ namespace build;
 )]
 class Build : StandardNukeBuild, IUseCsharpier
 {
-    public Solution CurrentSolution => From<IHazSolution>().Solution;
-
     public override string OriginalRepositoryName { get; } = "SharpDotYaml";
     public override string MainReleaseBranch { get; } = MainBranch;
     public override IEnumerable<Project> ProjectsToPack => new[]
@@ -52,6 +50,8 @@ class Build : StandardNukeBuild, IUseCsharpier
     bool IUseCsharpier.UseGlobalTool { get; } = true;
 
     public override IEnumerable<Project> TestProjects => CurrentSolution.GetAllProjects("*Tests*");
+
+    public override bool SignReleaseTags { get; } = true;
 
     // Support plugins are available for:
     //   - JetBrains ReSharper        https://nuke.build/resharper
