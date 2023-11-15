@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>SharpDotYaml.Extensions.Configuration</AssemblyName>
     <RootNamespace>SharpDotYaml.Extensions.Configuration</RootNamespace>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</TargetFrameworks>
     <Description>Provide support for adding .yaml files as Microsoft.Extensions.Configuration providers</Description>
     <PackageTags>dotnet;yaml;dotyaml;configuration</PackageTags>
     <IsPackable>true</IsPackable>
@@ -46,8 +46,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
     <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 
