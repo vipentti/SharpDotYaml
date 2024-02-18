@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using YamlDotNet.Core;
@@ -17,7 +18,7 @@ namespace SharpDotYaml.Extensions.Configuration;
 /// </summary>
 internal sealed class YamlConfigurationStreamParser
 {
-    private readonly IDictionary<string, string?> _data = new Dictionary<string, string?>(
+    private readonly Dictionary<string, string?> _data = new(
         StringComparer.OrdinalIgnoreCase
     );
     private readonly Stack<string> _context = new();
@@ -25,7 +26,7 @@ internal sealed class YamlConfigurationStreamParser
     public static IDictionary<string, string?> Parse(Stream input) =>
         new YamlConfigurationStreamParser().ParseStream(input);
 
-    private IDictionary<string, string?> ParseStream(Stream input)
+    private Dictionary<string, string?> ParseStream(Stream input)
     {
         using (var reader = new StreamReader(input, detectEncodingFromByteOrderMarks: true))
         {
@@ -105,7 +106,7 @@ internal sealed class YamlConfigurationStreamParser
             case YamlSequenceNode yamlSequence:
                 for (var i = 0; i < yamlSequence.Children.Count; i++)
                 {
-                    EnterContext(i.ToString());
+                    EnterContext(i.ToString(CultureInfo.InvariantCulture));
                     VisitYamlNode(yamlSequence.Children[i]);
                     ExitContext();
                 }

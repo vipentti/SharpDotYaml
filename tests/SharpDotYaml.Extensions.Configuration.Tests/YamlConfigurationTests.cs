@@ -111,9 +111,9 @@ public class YamlConfigurationTests
         yamlConfiguration.Should().NotBeNull();
     }
 
-    public class YamlConfigurationProviderLoad
+    public sealed class YamlConfigurationProviderLoad : IDisposable
     {
-        private readonly YamlConfigurationProvider src = new YamlConfigurationProvider(
+        private readonly YamlConfigurationProvider src = new(
             new YamlConfigurationSource()
         );
 
@@ -190,6 +190,11 @@ public class YamlConfigurationTests
             act.Should()
                 .ThrowExactly<FormatException>()
                 .WithMessage("A duplicate key 'invalid' was found.");
+        }
+
+        public void Dispose()
+        {
+            src.Dispose();
         }
     }
 

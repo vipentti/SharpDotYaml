@@ -9,10 +9,13 @@
     <!-- Build -->
     <PropertyGroup>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-         <!-- Enable linter -->
+        <!-- Enable linter -->
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 
         <WarnOnPackingNonPackableProject>true</WarnOnPackingNonPackableProject>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <AnalysisMode>Recommended</AnalysisMode>
     </PropertyGroup>
 
     <!-- Packaging -->
