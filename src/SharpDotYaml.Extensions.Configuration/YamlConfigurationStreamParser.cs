@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Ville Penttinen
+﻿// Copyright 2023-2024 Ville Penttinen
 // Distributed under the MIT License.
 // https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md
 
@@ -18,9 +18,7 @@ namespace SharpDotYaml.Extensions.Configuration;
 /// </summary>
 internal sealed class YamlConfigurationStreamParser
 {
-    private readonly Dictionary<string, string?> _data = new(
-        StringComparer.OrdinalIgnoreCase
-    );
+    private readonly Dictionary<string, string?> _data = new(StringComparer.OrdinalIgnoreCase);
     private readonly Stack<string> _context = new();
 
     public static IDictionary<string, string?> Parse(Stream input) =>
