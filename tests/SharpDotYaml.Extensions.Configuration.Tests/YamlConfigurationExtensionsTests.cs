@@ -21,9 +21,7 @@ public static class YamlConfigurationExtensionsTests
 
             act.Should()
                 .ThrowExactly<ArgumentException>()
-                .Which
-                .ParamName
-                .Should()
+                .Which.ParamName.Should()
                 .Be(nameof(path));
         }
 
@@ -50,8 +48,8 @@ public static class YamlConfigurationExtensionsTests
         public void SupportsLoadingDataFromFileProvider()
         {
             var env = """
-            test: value
-            """;
+                test: value
+                """;
 
             builder.AddYamlFile(
                 provider: env.StringToFileProvider(),
@@ -83,8 +81,8 @@ public static class YamlConfigurationExtensionsTests
         public void SupportsLoadingDataFromStream()
         {
             var env = """
-            test: value
-            """;
+                test: value
+                """;
 
             var config = builder.AddYamlStream(env.StringToStream()).Build();
             config["test"].Should().Be("value");
@@ -94,8 +92,8 @@ public static class YamlConfigurationExtensionsTests
         public void Throws_IfReadingMultipleTimesFromStream()
         {
             var env = """
-            test: value
-            """;
+                test: value
+                """;
 
             _ = builder.AddYamlStream(env.StringToStream()).Build();
 
@@ -108,8 +106,8 @@ public static class YamlConfigurationExtensionsTests
         public void Throws_IfStreamWasDisposed()
         {
             var env = """
-            test: value
-            """;
+                test: value
+                """;
             using (var stream = env.StringToStream())
             {
                 builder.AddYamlStream(stream);
@@ -124,8 +122,8 @@ public static class YamlConfigurationExtensionsTests
         public void Throws_WhenReloading()
         {
             var env = """
-            test: value
-            """;
+                test: value
+                """;
 
             var config = builder.AddYamlStream(env.StringToStream()).Build();
 
