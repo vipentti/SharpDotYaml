@@ -2,6 +2,8 @@
 // Distributed under the MIT License.
 // https://github.com/vipentti/SharpDotYaml/blob/main/LICENSE.md
 
+using System.Globalization;
+
 namespace SharpDotYaml.Extensions.Configuration;
 
 internal static class Strings
@@ -16,20 +18,20 @@ internal static class Strings
     public const string Error_InvalidKey = "The YAML element has an invalid key: '{0}'";
 
     public static string FormatError_InvalidTopLevelYAMLElement(object arg0) =>
-        string.Format(Error_InvalidTopLevelYAMLElement, arg0);
+        string.Format(CultureInfo.InvariantCulture, Error_InvalidTopLevelYAMLElement, arg0);
 
     public static string FormatError_UnsupportedKeyElement(object arg0, object arg1) =>
-        string.Format(Error_UnsupportedKeyElement, arg0, arg1);
+        string.Format(CultureInfo.InvariantCulture, Error_UnsupportedKeyElement, arg0, arg1);
 
     public static string FormatError_UnsupportedYAMLElement(object arg0, object arg1) =>
-        string.Format(Error_UnsupportedYAMLElement, arg0, arg1);
+        string.Format(CultureInfo.InvariantCulture, Error_UnsupportedYAMLElement, arg0, arg1);
 
     public static string FormatError_KeyIsDuplicated(object arg0) =>
-        string.Format(Error_KeyIsDuplicated, arg0);
+        string.Format(CultureInfo.InvariantCulture, Error_KeyIsDuplicated, arg0);
 
     public static string FormatError_YAMLParseError(object arg0) =>
-        string.Format(Error_YAMLParseError, arg0);
+        string.Format(CultureInfo.InvariantCulture, Error_YAMLParseError, arg0);
 
     public static string FormatError_InvalidKey(object arg0) =>
-        string.Format(Error_InvalidKey, arg0);
+        string.Format(CultureInfo.InvariantCulture, Error_InvalidKey, arg0);
 }

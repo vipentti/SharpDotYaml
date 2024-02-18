@@ -95,10 +95,12 @@ public static class YamlConfigurationExtensions
         bool reloadOnChange
     )
     {
+#pragma warning disable CA1510 //  Use 'ArgumentNullException.ThrowIfNull'
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+#pragma warning restore CA1510 //  Use 'ArgumentNullException.ThrowIfNull'
 
         if (string.IsNullOrEmpty(path))
         {
@@ -137,10 +139,12 @@ public static class YamlConfigurationExtensions
         Stream stream
     )
     {
+#pragma warning disable CA1510 //  Use 'ArgumentNullException.ThrowIfNull'
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+#pragma warning restore CA1510 //  Use 'ArgumentNullException.ThrowIfNull'
 
         return builder.Add<YamlStreamConfigurationSource>(s => s.Stream = stream);
     }

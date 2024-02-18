@@ -8,7 +8,7 @@ namespace SharpDotYaml.Extensions.Configuration.Tests;
 
 public static class YamlConfigurationExtensionsTests
 {
-    public class AddYamlFile
+    public class AddYamlFileTests
     {
         private readonly ConfigurationBuilder builder = new ConfigurationBuilder();
 
@@ -63,7 +63,7 @@ public static class YamlConfigurationExtensionsTests
         }
     }
 
-    public class AddYamlStream
+    public class AddYamlStreamTests
     {
         private readonly ConfigurationBuilder builder = new ConfigurationBuilder();
 
