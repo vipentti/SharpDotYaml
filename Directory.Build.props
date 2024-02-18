@@ -15,7 +15,7 @@
         <WarnOnPackingNonPackableProject>true</WarnOnPackingNonPackableProject>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest</AnalysisLevel>
-        <AnalysisMode>Recommended</AnalysisMode>
+        <AnalysisMode>All</AnalysisMode>
     </PropertyGroup>
 
     <!-- Packaging -->
