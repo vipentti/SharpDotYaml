@@ -12,8 +12,8 @@ public class EmptyObjectTests
     public void EmptyObject_AddsAsNull()
     {
         var yaml = """
-        key: { }
-        """;
+            key: { }
+            """;
 
         var yamlConfiguration = LoadYamlProvider(yaml);
 
@@ -28,8 +28,8 @@ public class EmptyObjectTests
     public void NullObject_AddsAsNull(string nullValue)
     {
         var yaml = $"""
-        key: {nullValue}
-        """;
+            key: {nullValue}
+            """;
 
         var yamlConfiguration = LoadYamlProvider(yaml);
 
@@ -40,9 +40,9 @@ public class EmptyObjectTests
     public void NestedObject_DoesNotAddParent()
     {
         var yaml = """
-        key:
-          nested: value
-        """;
+            key:
+              nested: value
+            """;
 
         var yamlConfiguration = LoadYamlProvider(yaml);
 
