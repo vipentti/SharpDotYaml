@@ -1,0 +1,20 @@
+#nullable enable
+Microsoft.Extensions.Configuration.YamlConfigurationExtensions
+override SharpDotYaml.Extensions.Configuration.YamlConfigurationProvider.Load(System.IO.Stream! stream) -> void
+override SharpDotYaml.Extensions.Configuration.YamlConfigurationSource.Build(Microsoft.Extensions.Configuration.IConfigurationBuilder! builder) -> Microsoft.Extensions.Configuration.IConfigurationProvider!
+override SharpDotYaml.Extensions.Configuration.YamlStreamConfigurationProvider.Load(System.IO.Stream! stream) -> void
+override SharpDotYaml.Extensions.Configuration.YamlStreamConfigurationSource.Build(Microsoft.Extensions.Configuration.IConfigurationBuilder! builder) -> Microsoft.Extensions.Configuration.IConfigurationProvider!
+SharpDotYaml.Extensions.Configuration.YamlConfigurationProvider
+SharpDotYaml.Extensions.Configuration.YamlConfigurationProvider.YamlConfigurationProvider(SharpDotYaml.Extensions.Configuration.YamlConfigurationSource! source) -> void
+SharpDotYaml.Extensions.Configuration.YamlConfigurationSource
+SharpDotYaml.Extensions.Configuration.YamlConfigurationSource.YamlConfigurationSource() -> void
+SharpDotYaml.Extensions.Configuration.YamlStreamConfigurationProvider
+SharpDotYaml.Extensions.Configuration.YamlStreamConfigurationProvider.YamlStreamConfigurationProvider(Microsoft.Extensions.Configuration.StreamConfigurationSource! source) -> void
+SharpDotYaml.Extensions.Configuration.YamlStreamConfigurationSource
+SharpDotYaml.Extensions.Configuration.YamlStreamConfigurationSource.YamlStreamConfigurationSource() -> void
+static Microsoft.Extensions.Configuration.YamlConfigurationExtensions.AddYamlFile(this Microsoft.Extensions.Configuration.IConfigurationBuilder! builder, Microsoft.Extensions.FileProviders.IFileProvider? provider, string! path, bool optional, bool reloadOnChange) -> Microsoft.Extensions.Configuration.IConfigurationBuilder!
+static Microsoft.Extensions.Configuration.YamlConfigurationExtensions.AddYamlFile(this Microsoft.Extensions.Configuration.IConfigurationBuilder! builder, string! path) -> Microsoft.Extensions.Configuration.IConfigurationBuilder!
+static Microsoft.Extensions.Configuration.YamlConfigurationExtensions.AddYamlFile(this Microsoft.Extensions.Configuration.IConfigurationBuilder! builder, string! path, bool optional) -> Microsoft.Extensions.Configuration.IConfigurationBuilder!
+static Microsoft.Extensions.Configuration.YamlConfigurationExtensions.AddYamlFile(this Microsoft.Extensions.Configuration.IConfigurationBuilder! builder, string! path, bool optional, bool reloadOnChange) -> Microsoft.Extensions.Configuration.IConfigurationBuilder!
+static Microsoft.Extensions.Configuration.YamlConfigurationExtensions.AddYamlFile(this Microsoft.Extensions.Configuration.IConfigurationBuilder! builder, System.Action<SharpDotYaml.Extensions.Configuration.YamlConfigurationSource!>? configureSource) -> Microsoft.Extensions.Configuration.IConfigurationBuilder!
+static Microsoft.Extensions.Configuration.YamlConfigurationExtensions.AddYamlStream(this Microsoft.Extensions.Configuration.IConfigurationBuilder! builder, System.IO.Stream! stream) -> Microsoft.Extensions.Configuration.IConfigurationBuilder!

@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Update YamlDotNet to 15.1.1
+- Document current PublicAPI to keep track of breaking changes
 
 ## [0.3.0] / 2023-11-15
 - Add .NET 8 support
