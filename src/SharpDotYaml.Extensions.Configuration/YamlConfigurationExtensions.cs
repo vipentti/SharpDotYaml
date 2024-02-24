@@ -125,8 +125,18 @@ public static class YamlConfigurationExtensions
     /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
     public static IConfigurationBuilder AddYamlFile(
         this IConfigurationBuilder builder,
-        Action<YamlConfigurationSource> configureSource
-    ) => builder.Add(configureSource);
+        Action<YamlConfigurationSource>? configureSource
+    )
+    {
+#pragma warning disable CA1510 //  Use 'ArgumentNullException.ThrowIfNull'
+        if (builder == null)
+        {
+            throw new ArgumentNullException(nameof(builder));
+        }
+#pragma warning restore CA1510 //  Use 'ArgumentNullException.ThrowIfNull'
+
+        return builder.Add(configureSource);
+    }
 
     /// <summary>
     /// Adds a YAML configuration source to <paramref name="builder"/> that reads from a <see cref="Stream"/>.
