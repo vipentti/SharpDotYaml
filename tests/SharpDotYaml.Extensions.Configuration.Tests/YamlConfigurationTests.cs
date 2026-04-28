@@ -171,7 +171,7 @@ public class YamlConfigurationTests
 
             act.Should()
                 .ThrowExactly<FormatException>()
-                .WithMessage("Could not parse YAML: 'Duplicate key'.");
+                .WithMessage("Could not parse YAML: 'Duplicate key invalid'.");
         }
 
         [Fact]
@@ -258,7 +258,7 @@ public class YamlConfigurationTests
 
             act.Should()
                 .ThrowExactly<FormatException>()
-                .WithMessage("Could not parse YAML: 'Duplicate key'.");
+                .WithMessage("Could not parse YAML: 'Duplicate key invalid'.");
         }
 
         [Fact]

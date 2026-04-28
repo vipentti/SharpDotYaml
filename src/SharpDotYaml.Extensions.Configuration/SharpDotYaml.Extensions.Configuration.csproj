@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>SharpDotYaml.Extensions.Configuration</AssemblyName>
     <RootNamespace>SharpDotYaml.Extensions.Configuration</RootNamespace>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net10.0;net9.0;net8.0</TargetFrameworks>
     <Description>Provide support for adding .yaml files as Microsoft.Extensions.Configuration providers</Description>
     <PackageTags>dotnet;yaml;dotyaml;configuration</PackageTags>
     <IsPackable>true</IsPackable>
@@ -25,7 +25,7 @@
     <UseReproducibleBuild Condition="'$(UseReproducibleBuild)'==''">false</UseReproducibleBuild>
 
     <Nullable>enable</Nullable>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>14.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,23 +44,23 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(UseReproducibleBuild)' == 'true'">
-    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="2.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4">
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
-    <PackageReference Include="YamlDotNet" Version="15.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.7" />
+    <PackageReference Include="YamlDotNet" Version="17.0.1" />
   </ItemGroup>
 
 </Project>
